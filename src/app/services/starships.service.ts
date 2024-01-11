@@ -20,7 +20,7 @@ export class StarshipsService {
   //TODO: 2 - métode per mostrar les naus i cards. Amb l'obserbable enllacem l'interface per tenir l'estructura de dades necessàries.
   // Aquest mètode el farem servir al starship.component.ts per crera el métode per mostrar naus en pantalla.
 
-  public showStarships(page: number): Observable<Starships> {
+  public showStarships(page: string): Observable<Starships> {
     const apiUrlPage = `${this.apiUrl}/?page=${page.toString()}`;
 
     return this.httpClient

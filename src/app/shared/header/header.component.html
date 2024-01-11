@@ -11,11 +11,11 @@
     @if(userToken() === ''){
       <li class="nav-item">
         <a class="nav-link text-white"
-        [routerLink]="['/account/login']" routerLinkActive="router-link-active border-bottom border-warning" >LOG IN</a>
+        [routerLink]="['/auth/login']" routerLinkActive="router-link-active border-bottom border-warning" >LOG IN</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white"
-        [routerLink]="['/account/register']" routerLinkActive="router-link-active border-bottom border-warning">SIGN UP</a>
+        [routerLink]="['/auth/register']" routerLinkActive="router-link-active border-bottom border-warning">SIGN UP</a>
       </li>
     }@else{
       <li class="nav-item">
