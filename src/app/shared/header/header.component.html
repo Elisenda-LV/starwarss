@@ -1,0 +1,45 @@
+<nav class="navbar row p-2">
+  <div class="col-4">
+    <img class="icon ps-5" src="./assets/images/icon.png" alt="icon starwars">
+  </div>
+  <div class="col-4 d-flex justify-content-center">
+    <img class="logo" src="./assets/images/starwars.png" alt="logo star wars">
+  </div>
+  <div class="col-4 d-flex justify-content-end">
+    <ul class="nav p-0 m-0" >
+
+    <!-- @if(userToken() === ''){
+      <li class="nav-item">
+        <a class="nav-link text-white"
+        [routerLink]="['/account/login']" routerLinkActive="router-link-active border-bottom border-warning" >LOG IN</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white"
+        [routerLink]="['/account/register']" routerLinkActive="router-link-active border-bottom border-warning">SIGN UP</a>
+      </li>
+    }@else{
+      <li class="nav-item">
+        <p class="nav-link text-warning">May the Force be with you!</p>
+      </li>
+      <li>
+        <a class="nav-link text-white" (click)="logout()"
+        [routerLink]="['/home']" routerLinkActive="router-link-active text-white">LOG OUT</a>
+      </li>
+    } -->
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar justify-content-center border-bottom border-secondary p-0">
+  <ul class="nav">
+    <li class="nav-item">
+     <a class="nav-link  text-secondary"
+     [routerLink]="['/home']" routerLinkActive="router-link-active border-bottom border-warning text-white">HOME</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-secondary"
+      [routerLink]="['/starships']" routerLinkActive="router-link-active border-bottom border-warning text-white">STARSHIPS</a>
+    </li>
+  </ul>
+</nav>
+
