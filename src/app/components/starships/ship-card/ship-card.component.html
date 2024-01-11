@@ -1,1 +1,37 @@
-<p>ship-card works!</p>
+<div class="container mt-5 p-0">
+
+  <div class="row border-top border-bottom border-secondary mt-5 ms-4 me-4 p-2"
+  [routerLink]="['/starships']" routerLinkActive="router-link-active">
+    <h6 class="title">STARSHIPS</h6>
+  </div>
+
+  <div class="d-flex ms-4 me-4 ps-5 pe-5">
+
+    <div class="col">
+      <img [src]="starshipCard.url" alt="starship image">
+    </div>
+
+    <div class="col ">
+    <div class=" w-100 bg-dark mt-4 pe-5 pb-3 ps-4 pt-3 border-start border-danger">
+      <h5 class="card-title">{{ starshipCard.name.toUpperCase() }}</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+      <div class="d-flex">
+        <ul class="card-body pe-5">
+          <li class="card-text">Model: <span>{{ starshipCard.model }} </span></li>
+          <li class="card-text">Cost in Credits: <span>{{ starshipCard.cost_in_credits }} </span></li>
+          <li class="card-text">Atmospheric Speed: <span> {{ starshipCard.max_atmosphering_speed }} </span></li>
+        </ul>
+        <ul class="card-body">
+          <li class="card-text">Manufacturer: <span> {{ starshipCard.manufacturer }} </span></li>
+          <li class="card-text">Length:<span> {{ starshipCard.length }} </span></li>
+          <li class="card-text">Crew: <span> {{ starshipCard.crew }} </span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</div>
+

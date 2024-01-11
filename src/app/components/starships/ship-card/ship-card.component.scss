@@ -1,0 +1,31 @@
+:root{
+  background-color: black;
+}
+
+.container, body, .row, col {
+  background-color: black;
+}
+
+p, h6, .card-text, .card-title{
+  color: rgb(192, 194, 185);
+}
+
+
+
+h5, span {
+  font-weight: bold;
+}
+
+.card-text{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11pt;
+}
+
+.card-title{
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+.img{
+  width: 50%;
+}

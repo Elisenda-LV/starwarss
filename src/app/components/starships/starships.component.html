@@ -1,1 +1,25 @@
-<p>starships works!</p>
+<div class="container">
+
+ <!--  infinite-scroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="300"
+  (scrolled)="scrollDown()"
+  (scrolledUp)="scrollUp()"> -->
+
+  @for (starship of starshipsData ; track starship.id){
+
+    <div class="row d-flex justify-content-center">
+      <div class="card w-75 bg-dark m-4">
+        <div class="card-body" (click)="viewShip(starship.id)">
+          <h6 class="card-title">{{ starship.name.toUpperCase() }}</h6>
+          <p class="card-text">{{ starship.model }}</p>
+        </div>
+      </div>
+    </div>
+
+  }@empty(){
+    <p>Loading...</p>
+  }
+
+</div>
+
