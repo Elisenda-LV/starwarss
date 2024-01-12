@@ -1,20 +1,23 @@
-<div class="row justify-content-center">
+<div class="row login justify-content-center">
+  <div class="row">
+    <div class="container text-end">
+      <button class="btn btn-light text-secondary mt-4 me-4" (click)="closeDialog()" >x</button>
+    </div>
+  </div>
 
   <div class="card m-5">
 
     <div class="card-body ps-5 pe-5 pt-5">
       <h5 class="card-title">Log into your Star Wars account</h5>
-
     </div>
 
     <!-- --------- FORMULARI-------------- -->
-    <form [formGroup]="loginForm"
-          class="card-body pb-3 ps-5 pe-5">
+    <form [formGroup]="loginForm" class="card-body pb-2 ps-5 pe-5">
 
     <!-- email -->
-      <div class="pb-2">
+      <div class="pb-2 mt-0">
         <p class="card-text text3 pb-2">Enter your email and access the Star Wars Data Bank:</p>
-        <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
+        <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" required
         [ngClass]="{'
           is-invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched,
           'is-valid': loginForm.get('email')?.valid && loginForm.get('email')?.touched,
@@ -26,7 +29,7 @@
 
     <!-- password -->
       <div class="mb-3">
-        <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
+        <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" required
         [ngClass]="{'
           is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched,
           'is-valid': loginForm.get('password')?.valid && loginForm.get('password')?.touched,
@@ -39,14 +42,14 @@
       <div class="row pt-3 ps-3 pe-3">
         <button type="submit" class="btn btn-warning"
         (click)="login()">Log In</button>
-        <a routerLink="../register" class="btn btn-outline-dark mt-2">Register</a>
+        <button (click)="navigateToRegistration()" class="btn btn-outline-dark mt-2">Register</button>
       </div>
 
     </form>
 
     <div class="card-body pb-2 ps-5 pe-5">
       <hr>
-      <p class="text1 text-secondary pt-3">Star Wars is a part of The Walt Disney Family of Companies</p>
+      <p class="text1 text-secondary pt-2">Star Wars is a part of The Walt Disney Family of Companies</p>
       <p class="text2 text-secondary">This email and password lets you seamlessly log into services and eperiences across The Walt Disney Family of Companies, such as ESPN, Walt Disney World, Marvel and more.</p>
       <img class="pb-3" src="/assets/images/disney.png" alt="disney family companies">
     </div>

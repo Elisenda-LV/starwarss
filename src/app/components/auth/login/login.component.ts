@@ -39,7 +39,7 @@ export class LoginComponent {
             next: (res) => {
               this.usersService.updateUser(res.accessToken!);
               this.incorrectLogin = false;
-              // this.closeDialog();
+              this.closeDialog();
 
               //navigate to the previous URL before login
               this.router.navigateByUrl(this.data);
@@ -52,6 +52,15 @@ export class LoginComponent {
         );
       }
     }
+
+  closeDialog(): void {
+    this.dialogService.closeDialogFunction();
+  }
+
+  navigateToRegistration(): void {
+    this.closeDialog();
+    this.dialog.open(RegisterComponent);
+  }
 
 
 }

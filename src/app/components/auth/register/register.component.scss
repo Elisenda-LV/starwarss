@@ -1,3 +1,6 @@
+.register{
+  background-color: black;
+}
 .card{
   border-radius: 25pt;
   width: 40%;
@@ -28,11 +31,11 @@
 
 .text3{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 8pt;
+  font-size: 7pt;
 }
 
 img{
-  width: 300pt;
+  width: 100%;
 }
 
 .form-label{
@@ -46,3 +49,5 @@ img{
   font-size: 10pt;
   border-radius: 50pt;
 }
+
+

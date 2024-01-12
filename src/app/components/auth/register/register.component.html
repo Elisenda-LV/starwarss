@@ -1,16 +1,21 @@
-<div class="row justify-content-center">
-  <div class="card m-5">
+<div class="row register justify-content-center">
 
+  <div class="row">
+    <div class="container text-end">
+      <button class="btn btn-light text-secondary mt-4 me-4" (click)="closeDialog()" >x</button>
+    </div>
+  </div>
+
+  <div class="card  m-5 mt-3">
     <div class="card-body ps-5 pe-5 pt-5">
-      <h5 class="card-title">Create your account</h5>
-      <p class="text2 pt-3">Star Wars is part of The Walts Disney Family of Companies. You'll be able to log into services and experiences using the same email and password.</p>
+      <h5 class="card-title">Create your Star Wars account</h5>
+      <p class="text2 pt-3">Star Wars is part of The Walts Disney Family of Companies. You'll be able to log into services and experiences using the same email and password. </p>
     </div>
 
-    <form [formGroup]="registerForm"
-        class="card-body pb-2 ps-5 pe-5">
+    <form [formGroup]="registerForm" class="card-body ps-5 pe-5 mt-0 pt-0">
 
       <!------- name ------->
-      <div class="mb-4">
+      <div class="mb-4 mt-0">
         <input type="name" class="form-control" placeholder="Enter your name" formControlName="name" required
         [ngClass]="{'
           is-invalid': registerForm.get('name')?.invalid && registerForm.get('name')?.touched,
@@ -20,8 +25,6 @@
           <span class="text3 text-danger">Name is required</span>
         }
       </div>
-
-
 
 
       <!------- email ------->
@@ -64,23 +67,17 @@
       }
       </div>
 
-
-
-       <!------- checkbox ------->
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input">
-        <label class="form-check-label text3 text-secondary">Yes! I would like to receive by email special offers and updates about Lucasfilm Ltd. and other products and services from The Walt Disney Family of Companies.</label>
-      </div>
-
       <div>
-        <p class="text3 text-secondary">By creating an account, you agree to our Terms of Use, and acknowledge that you have read our Privacy Policy, Cookies Policy and UK & EU Privacy Rights.</p>
+        <p class="text3 text-secondary">*By creating an account, you agree to our Terms of Use, and acknowledge that you have read our Privacy Policy, Cookies Policy and UK & EU Privacy Rights.</p>
       </div>
 
       <!------- button submit ------->
       <div class="row justify-content-center pt-3 ps-3 pe-3">
         <button type="submit" class="btn btn-warning"
         (click)="register()">Create an account</button>
-        <a routerLink="home" routerLinkActive="router-link-active" class="btn btn-outline-secondary mt-2">Cancel</a>
+        <button class="btn btn-outline-secondary mt-2"
+          (click)="navigateToLogin()">Log In</button>
+
       </div>
 
     </form>

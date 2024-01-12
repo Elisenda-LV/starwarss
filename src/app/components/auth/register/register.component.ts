@@ -3,13 +3,16 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsersService } from '../../../services/users.service';
 import { ComunicationService } from '../../../services/dialog/comunication.service';
+import { RouterModule } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -26,7 +29,7 @@ export class RegisterComponent {
   constructor (
     public usersService: UsersService,
     public dialogService: ComunicationService,
-
+    public dialog: MatDialog,
   ){}
 
   public register(){
@@ -41,16 +44,35 @@ export class RegisterComponent {
             this.usersService.register(JSON.stringify(formData))
               .subscribe({
                 next: (res) => {
-                  this.usersService.updateUser(res.accessToken!);
-                },
-                error: e => console.log(e)
-              });
+                  console.log(res);
+                  console.log(formData)
+                  this.closeDialog();
+                  const loginData = { email: formData.email!, password: formData.password! };
+                  this.usersService.login(JSON.stringify(loginData)).subscribe(
+                    {
+                      next: (res) => {
+                        this.usersService.updateUser(res.accessToken!);
+                      },
+                      error: e => console.log(e)
+                    });
+                  },
+                });
+
           }else{
             this.repeatedEmail = true;
           }
         }
-      )
+      );
     }
+  }
+
+  closeDialog(): void {
+    this.dialogService.closeDialogFunction();
+  }
+
+  navigateToLogin(): void {
+    this.closeDialog();
+    this.dialog.open(LoginComponent);
   }
 
 }
