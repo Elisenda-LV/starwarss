@@ -14,6 +14,8 @@ export class AuthGuard {
     private dialog: MatDialog
   ) {}
 
+  //TODO: Important! Afegir a app.routes.ts el CanActivate!
+
   canActivate(state: RouterStateSnapshot, activatedRoute: ActivatedRoute): boolean {
     if (this.usersService.isUserLoggedIn()) {
       return true;

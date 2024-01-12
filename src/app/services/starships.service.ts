@@ -60,5 +60,54 @@ export class StarshipsService {
 
   }
 
+  //TODO: 4- Mostrar pilots i films:
+
+  public showPilot(url: string) {
+    return this.httpClient.get<any>(url);
+  }
+
+  public async showPilotImage(id: string): Promise<string> {
+    try {
+      const response = await fetch(`${this.imageUrl}/characters/${id}.jpg`);
+
+      if (response.ok) {
+        const responseData = await response.blob();
+        const imageUrl = URL.createObjectURL(responseData);
+        // imageUrl ahora contiene la URL de la imagen que puedes asignar a una propiedad en tu componente
+        console.log('Imagen loaded succesfully:', imageUrl);
+        return imageUrl;
+      }
+      else throw new Error('Image not available');
+
+    } catch (error) {
+      console.error('Fetch error:', error);
+      throw error;
+    }
+  }
+
+  public showFilm(url: string) {
+    return this.httpClient.get<any>(url);
+  }
+
+  public async showFilmImage(id: string): Promise<string> {
+    try {
+      const response = await fetch(`${this.imageUrl}/films/${id}.jpg`);
+
+      if (response.ok) {
+        const responseData = await response.blob();
+        const imageUrl = URL.createObjectURL(responseData);
+        // imageUrl ahora contiene la URL de la imagen que puedes asignar a una propiedad en tu componente
+        console.log('Imagen loaded succesfully:', imageUrl);
+        return imageUrl;
+      }
+      else throw new Error('Image not available');
+
+    } catch (error) {
+      console.error('Fetch error:', error);
+      throw error;
+    }
+  }
+
+
 
 }

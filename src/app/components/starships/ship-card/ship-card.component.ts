@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, Pipe, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { StarshipsComponent } from '../starships.component';
 import { StarshipsData } from '../../../interfaces/starships.interface';
 import { StarshipsService } from '../../../services/starships.service';
+import { PilotsComponent } from './pilots/pilots.component';
+import { FilmsComponent } from './films/films.component';
 
 @Component({
   selector: 'app-ship-card',
@@ -14,6 +16,8 @@ import { StarshipsService } from '../../../services/starships.service';
     RouterModule,
     HttpClientModule,
     StarshipsComponent,
+    PilotsComponent,
+    FilmsComponent,
   ],
   templateUrl: './ship-card.component.html',
   styleUrl: './ship-card.component.scss'
@@ -47,6 +51,9 @@ export class ShipCardComponent implements OnInit {
   public pilots: string[] = [];
   public films: string[] = [];
 
+  public pilotsLoaded: boolean = false;
+  public filmsLoaded: boolean = false;
+
   constructor(public route: ActivatedRoute){}
 
   ngOnInit(): void {
@@ -67,6 +74,8 @@ export class ShipCardComponent implements OnInit {
         this.pilots = this.starshipCard.pilots;
         this.films = this.starshipCard.films;
         await this.showImage(id);
+        this.filmsLoaded = true;
+        this.pilotsLoaded = true;
         },
       })
 

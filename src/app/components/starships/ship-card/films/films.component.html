@@ -1,13 +1,14 @@
 <div class="row border-top border-bottom border-secondary mt-5 ms-4 me-4 p-2">
-  <h6 class="title">PILOTS</h6>
+  <h6 class="title">FILMS</h6>
 </div>
 
 <div class="row ms-4 me-4 mt-2 mb-2">
-  @for(pilot of pilotsArray; track $index){
+  @for(film of filmsArray; track $index){
   <div class="card bg-dark mt-3" style="width: 18rem;">
-    <img [src]="pilot.imageUrl" class="card-img-top" [alt]="pilot.name">
+    <img [src]="film.imageUrl" class="card-img-top" [alt]="film.title">
     <div class="card-body bg-dark border-top border-danger">
-      <h6 class="card-text">{{ pilot.name.toUpperCase() }}</h6>
+      <h6 class="card-title">{{ film.title.toUpperCase() }}</h6>
+      <p class="card-text">{{ film.episode }}</p>
     </div>
   </div>
   }

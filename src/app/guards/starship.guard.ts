@@ -14,6 +14,8 @@ export class StarshipGuard {
     private starshipsService: StarshipsService,
   ) {}
 
+    //TODO: Important! Afegir a app.routes.ts el CanActivate!
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     const id: string = route.params['id'];
 
