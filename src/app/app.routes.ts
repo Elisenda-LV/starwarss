@@ -11,6 +11,12 @@ export const routes: Routes = [
   },
 
   {
+    path: 'not-found',
+    title: 'Not Found',
+    loadComponent: () => import('./pages/not-found/not-found.component').then(c => c.NotFoundComponent),
+  },
+
+  {
     path: 'starships',
     title: 'Starships',
     loadComponent: () => import('./components/starships/starships.component').then(c => c.StarshipsComponent),

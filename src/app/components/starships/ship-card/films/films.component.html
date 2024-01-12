@@ -4,7 +4,7 @@
 
 <div class="row ms-4 me-4 mt-2 mb-2">
   @for(film of filmsArray; track $index){
-  <div class="card bg-dark mt-3" style="width: 18rem;">
+  <div class="card bg-dark mt-3 pe-2" style="width: 18rem;">
     <img [src]="film.imageUrl" class="card-img-top" [alt]="film.title">
     <div class="card-body bg-dark border-top border-danger">
       <h6 class="card-title">{{ film.title.toUpperCase() }}</h6>

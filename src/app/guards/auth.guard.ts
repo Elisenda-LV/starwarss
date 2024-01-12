@@ -20,7 +20,7 @@ export class AuthGuard {
     if (this.usersService.isUserLoggedIn()) {
       return true;
     } else {
-      this.router.navigate(['/main-page']);
+      this.router.navigate(['/home']);
       //pass previous url to LoginComponent
       this.dialog.open(LoginComponent, { data: activatedRoute.url });
       return false;
