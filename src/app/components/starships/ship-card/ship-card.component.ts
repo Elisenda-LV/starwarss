@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { StarshipsComponent } from '../starships.component';
 import { StarshipsData } from '../../../interfaces/starships.interface';
@@ -18,9 +18,9 @@ import { StarshipsService } from '../../../services/starships.service';
   templateUrl: './ship-card.component.html',
   styleUrl: './ship-card.component.scss'
 })
-export class ShipCardComponent {
+export class ShipCardComponent implements OnInit {
   public starshipService = inject(StarshipsService);
-  public starshipsId : string = '';
+  public starshipID: string = '';
 
   public starshipCard : StarshipsData = {
     id:                     '',
@@ -50,17 +50,16 @@ export class ShipCardComponent {
   constructor(public route: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.route.paramMap
-      .subscribe(id => {
-        this.starshipsId = id.get('id')!;
+    this.route.paramMap.subscribe(params => {
+      this.starshipID = params.get('id')!;
     });
 
-    this.showCard(this.starshipsId);
+    this.showCard(this.starshipID);
 
   }
 
   //TODO: Métode per extreure dades de l'api, showCards(), showImages() els obtenim del service.
-  public showCard(id: string){
+  public showCard(id: any){
     this.starshipService.showCards(id)
       .subscribe({
         next: async (data: StarshipsData) => {
@@ -74,7 +73,7 @@ export class ShipCardComponent {
 
   }
 
-  async showImage(id: string){
+  async showImage(id: any){
     try{
       this.starshipCard.url = await this.starshipService.showImages(id)
 

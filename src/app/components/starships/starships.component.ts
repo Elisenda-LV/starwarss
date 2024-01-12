@@ -23,7 +23,7 @@ export class StarshipsComponent implements OnInit {
   public starshipService = inject(StarshipsService);
   public starshipsData: any[] = [];
 
-  public currentPage: number = 1;
+  public currentPage: string = '';
   public load: boolean = true;
 
   constructor(public router: Router){}
@@ -61,7 +61,7 @@ export class StarshipsComponent implements OnInit {
   //TODO: 4- Métode per implementar l'inifinite-scroll.
   //Descarregar biblioteca a la terminal, afegir InfiniteScrollModule a imports.
 
-  public scrollDown(){
+  /* public scrollDown(){
     if(this.load){
       this.currentPage++;
       this.showData();
@@ -72,9 +72,6 @@ export class StarshipsComponent implements OnInit {
   public scrollUp(){
     if(this.load){
       this.currentPage--;
-      this.showData();
-    }
-
-  }
-
+      this.showData(); */
 }
+
