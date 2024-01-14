@@ -6,6 +6,7 @@ import { ComunicationService } from '../../../services/dialog/comunication.servi
 import { RouterModule } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { CustomValidators } from '../../../validators/custom.validators';
 
 
 
@@ -23,7 +24,7 @@ export class RegisterComponent {
   registerForm = new FormGroup({
     name: new FormControl ('', [Validators.required, Validators.maxLength(20)]),
     email: new FormControl('', [Validators.required, Validators.email],),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)])
+    password: new FormControl('', [Validators.required, Validators.minLength(8), CustomValidators.passwordValidator])
   })
 
   constructor (

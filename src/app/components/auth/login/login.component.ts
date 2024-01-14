@@ -6,6 +6,7 @@ import { ComunicationService } from '../../../services/dialog/comunication.servi
 import { Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { CustomValidators } from '../../../validators/custom.validators';
 
 @Component({
   selector: 'app-login',

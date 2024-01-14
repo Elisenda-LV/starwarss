@@ -22,7 +22,7 @@
           'is-valid': registerForm.get('name')?.valid && registerForm.get('name')?.touched,
         }">
          @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
-          <span class="text3 text-danger">Name is required</span>
+          <span class="text3 text-danger">*Name is required</span>
         }
       </div>
 
@@ -35,10 +35,10 @@
           'is-valid': registerForm.get('email')?.valid && registerForm.get('email')?.touched,
         }">
         @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
-          <span class="text3 text-danger">Email is required</span>
+          <span class="text3 text-danger">*Email is required</span>
         }
         @else if (repeatedEmail) {
-          <span class="text3 text-danger">Email already registered</span>
+          <span class="text3 text-danger">*Email already registered</span>
         }
       </div>
 
@@ -53,16 +53,11 @@
       }">
       @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
         @if(registerForm.get('password')?.hasError('required')) {
-          <span class="text3 text-danger">Password is required</span>
+          <span class="text3 text-danger">*Password is required</span>
         }
         @else if(registerForm.get('password')?.hasError('invalidPassword')) {
-          <ul class="text3 text-danger">
-            Password must have:
-            <li class="text3 text-danger">At least one lowercase letter</li>
-            <li class="text3 text-danger">At least one uppercase letter</li>
-            <li class="text3 text-danger">At least one number</li>
-            <li class="text3 text-danger">Minimum length of 8 characters</li>
-          </ul>
+          <p class="text3 text-danger pt-2">*The password must have at least 8 characters, at least one letter, and at least one number.</p>
+
         }
       }
       </div>

@@ -62,7 +62,7 @@ export class StarshipsComponent implements OnInit {
   //TODO: 4- Métode per implementar l'inifinite-scroll.
   //Descarregar biblioteca a la terminal, afegir InfiniteScrollModule a imports.
 
-   public scrollDown(){
+   public loadStarships(){
     if(this.load){
       this.currentPage++;
       this.showData();
@@ -71,10 +71,14 @@ export class StarshipsComponent implements OnInit {
   }
 
   public scrollUp(){
-    if (this.load && this.currentPage > 1) {
+    if(this.load){
       this.currentPage--;
       this.showData();
     }
 
   }
-}
+
+
+
+  }
+
