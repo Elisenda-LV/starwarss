@@ -4,6 +4,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { StarshipsService } from '../../services/starships.service';
 import { Starships } from '../../interfaces/starships.interface';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @Component({
   selector: 'app-starships',
@@ -12,7 +13,7 @@ import { Starships } from '../../interfaces/starships.interface';
     CommonModule,
     RouterModule,
     HttpClientModule,
-
+    InfiniteScrollModule,
   ],
   templateUrl: './starships.component.html',
   styleUrl: './starships.component.scss'
@@ -23,7 +24,7 @@ export class StarshipsComponent implements OnInit {
   public starshipService = inject(StarshipsService);
   public starshipsData: any[] = [];
 
-  public currentPage: string = '';
+  public currentPage: number = 1;
   public load: boolean = true;
 
   constructor(public router: Router){}
@@ -61,7 +62,7 @@ export class StarshipsComponent implements OnInit {
   //TODO: 4- Métode per implementar l'inifinite-scroll.
   //Descarregar biblioteca a la terminal, afegir InfiniteScrollModule a imports.
 
-  /* public scrollDown(){
+   public scrollDown(){
     if(this.load){
       this.currentPage++;
       this.showData();
@@ -70,8 +71,10 @@ export class StarshipsComponent implements OnInit {
   }
 
   public scrollUp(){
-    if(this.load){
+    if (this.load && this.currentPage > 1) {
       this.currentPage--;
-      this.showData(); */
-}
+      this.showData();
+    }
 
+  }
+}

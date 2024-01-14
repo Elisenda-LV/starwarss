@@ -10,17 +10,18 @@
 
     @if(userToken() === ''){
       <li class="nav-item">
-        <a class="nav-link text-white" (click)='openLogIn()'>LOG IN</a>
+        <button class="nav-link btn btn-outline-dark text-white" (click)='openLogIn()'>LOG IN</button>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" (click)="openRegister()">SIGN UP</a>
+        <button class="nav-link btn btn-outline-dark text-white" (click)="openRegister()">SIGN UP</button>
       </li>
     }@else{
       <li class="nav-item">
         <p class="nav-link text-warning">May the Force be with you!</p>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" (click)="logout()">LOG OUT</a>
+        <button class="nav-link btn btn-outline-dark text-white" (click)="logout()"
+        [routerLink]="['/home']" routerLinkActive="router-link-active">LOG OUT</button>
       </li>
     }
     </ul>
@@ -30,12 +31,12 @@
 <nav class="navbar justify-content-center border-bottom border-secondary p-0">
   <ul class="nav">
     <li class="nav-item">
-     <a class="nav-link  text-secondary"
-     [routerLink]="['/home']" routerLinkActive="router-link-active border-bottom border-warning text-white">HOME</a>
+     <button class="nav-link text-secondary"
+     [routerLink]="['/home']" routerLinkActive="router-link-active border-bottom border-warning text-white">HOME</button>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-secondary"
-      [routerLink]="['/starships']" routerLinkActive="router-link-active border-bottom border-warning text-white">STARSHIPS</a>
+      <button class="nav-link text-secondary"
+      [routerLink]="['/starships']" routerLinkActive="router-link-active border-bottom border-warning text-white">STARSHIPS</button>
     </li>
   </ul>
 

@@ -23,12 +23,8 @@ export class UsersService {
     token ? this.userToken.set(token) : this.userToken.set('');
   }
 
-  register(data: string): Observable<User> {
-    return this.http.post<User>(`${url}register`, data,httpOptions);
-  }
-
-  login(data: string): Observable<User> {
-    return this.http.post<User>(`${url}login`, data, httpOptions);
+  users(data: string): Observable<User> {
+    return this.http.post<User>(`${url}users`, data, httpOptions);
   }
 
   logout(): void {

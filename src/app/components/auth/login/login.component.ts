@@ -33,7 +33,7 @@ export class LoginComponent {
     login() {
       if (this.loginForm.valid) {
         let formData = this.loginForm.value;
-        this.usersService.login(JSON.stringify(formData))
+        this.usersService.users(JSON.stringify(formData))
         .subscribe(
           {
             next: (res) => {

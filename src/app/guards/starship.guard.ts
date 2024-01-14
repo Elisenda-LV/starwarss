@@ -24,7 +24,7 @@ export class StarshipGuard {
       return of(false);
     }
 
-    return this.starshipsService.showStarships(id).pipe(
+    return this.starshipsService.showCards(id).pipe(
       map((starship) => {
         if (starship) {
           return true;

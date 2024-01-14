@@ -23,7 +23,7 @@ export class RegisterComponent {
   registerForm = new FormGroup({
     name: new FormControl ('', [Validators.required, Validators.maxLength(20)]),
     email: new FormControl('', [Validators.required, Validators.email],),
-    password: new FormControl('', [Validators.required,])
+    password: new FormControl('', [Validators.required, Validators.minLength(8)])
   })
 
   constructor (
@@ -41,14 +41,13 @@ export class RegisterComponent {
         isRegistered => {
           if(!isRegistered){
             this.repeatedEmail = false;
-            this.usersService.register(JSON.stringify(formData))
+            this.usersService.users(JSON.stringify(formData))
               .subscribe({
                 next: (res) => {
                   console.log(res);
-                  console.log(formData)
                   this.closeDialog();
                   const loginData = { email: formData.email!, password: formData.password! };
-                  this.usersService.login(JSON.stringify(loginData)).subscribe(
+                  this.usersService.users(JSON.stringify(loginData)).subscribe(
                     {
                       next: (res) => {
                         this.usersService.updateUser(res.accessToken!);
