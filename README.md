@@ -1,6 +1,11 @@
-# Starwars
+# Star Wars Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+This Angular application connects to the Star Wars API and provides user authentication and registration functionalities using Guards.
+
+## Prerequisites
+- Node.js
+- Angular CLI
+- npm
 
 ## Development server
 
