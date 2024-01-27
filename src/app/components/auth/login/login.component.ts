@@ -11,7 +11,7 @@ import { CustomValidators } from '../../../validators/custom.validators';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
