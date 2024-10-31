@@ -20,14 +20,14 @@ export const routes: Routes = [
     path: 'starships',
     title: 'Starships',
     loadComponent: () => import('./components/starships/starships.component').then(c => c.StarshipsComponent),
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
 
   {
     path: 'starships/:id',
     title: 'Ships Card',
     loadComponent: () => import('./components/starships/ship-card/ship-card.component').then(c => c.ShipCardComponent),
-    canActivate: [AuthGuard, StarshipGuard]
+    // canActivate: [AuthGuard, StarshipGuard]
   },
 
   {
